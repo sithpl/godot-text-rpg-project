@@ -1,0 +1,581 @@
+[gd_scene load_steps=12 format=3 uid="uid://bx61bdlb15g2f"]
+
+[ext_resource type="Script" path="res://Scripts/BottomBar.gd" id="1_0o72f"]
+[ext_resource type="Script" path="res://Scripts/AdventureTest.gd" id="1_81aj3"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_khccv"]
+[ext_resource type="Script" path="res://Scripts/WindowManage.gd" id="1_upmjh"]
+[ext_resource type="Script" path="res://Scripts/LocalMaps.gd" id="2_bxisr"]
+[ext_resource type="Script" path="res://Scripts/PlayerData.gd" id="3_pudhi"]
+[ext_resource type="Script" path="res://Scripts/PlayBox.gd" id="3_q6yjh"]
+[ext_resource type="Script" path="res://Scripts/Equipment.gd" id="5_d337c"]
+[ext_resource type="Script" path="res://Scripts/WorldMap.gd" id="5_rjb57"]
+[ext_resource type="Script" path="res://Scripts/SystemMenu.gd" id="5_sc2sp"]
+[ext_resource type="Script" path="res://Scripts/Stats.gd" id="7_6pwgm"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_khccv")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AdventureTest" type="Node2D" parent="Node2D"]
+script = ExtResource("1_81aj3")
+
+[node name="PlayerData" type="Node2D" parent="Node2D"]
+script = ExtResource("3_pudhi")
+
+[node name="BottomBar" type="Control" parent="."]
+modulate = Color(0.0352941, 1, 0, 1)
+z_index = 4
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 688.0
+offset_right = 1278.0
+offset_bottom = 719.0
+script = ExtResource("1_0o72f")
+
+[node name="Panel" type="Panel" parent="BottomBar"]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 31.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomBar/Panel"]
+layout_mode = 0
+offset_right = 31.0
+offset_bottom = 31.0
+theme_override_constants/separation = 5
+
+[node name="MenuButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Menu
+"
+
+[node name="StatsButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Stats"
+
+[node name="EquipmentButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Equipment"
+
+[node name="MainButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Main"
+
+[node name="CommButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Communication
+"
+
+[node name="LocalMapButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Local Map
+"
+
+[node name="WorldMapButton" type="Button" parent="BottomBar/Panel/HBoxContainer"]
+layout_mode = 2
+text = "World Map
+"
+
+[node name="SystemMenu" type="Control" parent="."]
+visible = false
+top_level = true
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_top = 587.0
+offset_bottom = 587.0
+script = ExtResource("5_sc2sp")
+
+[node name="ColorRect" type="ColorRect" parent="SystemMenu"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 98.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SystemMenu"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_left = 3.0
+offset_right = 253.0
+offset_bottom = 98.0
+
+[node name="ResetUIButton" type="Button" parent="SystemMenu/VBoxContainer"]
+layout_mode = 2
+text = "RESET UI"
+
+[node name="AudioButton" type="Button" parent="SystemMenu/VBoxContainer"]
+layout_mode = 2
+text = "AUDIO"
+
+[node name="ExitButton" type="Button" parent="SystemMenu/VBoxContainer"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 252.0
+offset_top = 293.0
+offset_right = 895.0
+offset_bottom = 685.0
+script = ExtResource("1_upmjh")
+
+[node name="Background" type="ColorRect" parent="Main"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 393.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titlebar" type="Panel" parent="Main"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 31.0
+
+[node name="Title" type="Label" parent="Main/Titlebar"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 31.0
+text = "Main"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="Main/Titlebar"]
+visible = false
+layout_mode = 0
+offset_left = 604.0
+offset_right = 622.0
+offset_bottom = 31.0
+text = "-"
+
+[node name="CloseButton" type="Button" parent="Main/Titlebar"]
+layout_mode = 0
+offset_left = 622.0
+offset_right = 640.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="TextBox" type="ScrollContainer" parent="Main"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 640.0
+offset_bottom = 362.0
+script = ExtResource("3_q6yjh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/TextBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_constants/line_separation = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="PlayerInput" type="HBoxContainer" parent="Main"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 362.0
+offset_right = 641.0
+offset_bottom = 393.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main/PlayerInput"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Player"
+fit_content = true
+
+[node name="LineEdit" type="LineEdit" parent="Main/PlayerInput"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.85
+placeholder_text = "Type 'help' if you aren't sure what to do..."
+
+[node name="ResizeButton" type="Button" parent="Main"]
+visible = false
+layout_mode = 0
+offset_left = 622.0
+offset_top = 330.0
+offset_right = 641.0
+offset_bottom = 361.0
+text = "R"
+
+[node name="Communication" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 252.0
+offset_right = 892.0
+offset_bottom = 293.0
+script = ExtResource("1_upmjh")
+
+[node name="Background" type="ColorRect" parent="Communication"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 293.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titlebar" type="Panel" parent="Communication"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 31.0
+
+[node name="Title" type="Label" parent="Communication/Titlebar"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 31.0
+text = "Communication"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="Communication/Titlebar"]
+visible = false
+layout_mode = 0
+offset_left = 604.0
+offset_right = 622.0
+offset_bottom = 31.0
+text = "-"
+
+[node name="CloseButton" type="Button" parent="Communication/Titlebar"]
+layout_mode = 0
+offset_left = 622.0
+offset_right = 640.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="TextBox" type="ScrollContainer" parent="Communication"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 293.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Communication/TextBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+bbcode_enabled = true
+fit_content = true
+
+[node name="ResizeButton" type="Button" parent="Communication"]
+visible = false
+layout_mode = 0
+offset_left = 622.0
+offset_top = 189.0
+offset_right = 641.0
+offset_bottom = 220.0
+text = "R"
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 251.0
+offset_bottom = 345.0
+script = ExtResource("1_upmjh")
+
+[node name="Background" type="ColorRect" parent="Stats"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 345.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titlebar" type="Panel" parent="Stats"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 31.0
+
+[node name="Title" type="Label" parent="Stats/Titlebar"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 31.0
+text = "Stats
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="Stats/Titlebar"]
+visible = false
+layout_mode = 0
+offset_left = 214.0
+offset_right = 232.0
+offset_bottom = 31.0
+text = "-"
+
+[node name="CloseButton" type="Button" parent="Stats/Titlebar"]
+layout_mode = 0
+offset_left = 232.0
+offset_right = 250.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="TextBox" type="HBoxContainer" parent="Stats"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 250.0
+offset_bottom = 173.0
+script = ExtResource("7_6pwgm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/TextBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Stats/TextBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="TextBox2" type="VBoxContainer" parent="Stats"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 189.0
+offset_right = 251.0
+offset_bottom = 345.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stats/TextBox2"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="ResizeButton" type="Button" parent="Stats"]
+visible = false
+layout_mode = 0
+offset_left = 622.0
+offset_top = 189.0
+offset_right = 641.0
+offset_bottom = 220.0
+text = "R"
+
+[node name="Equipment" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 345.0
+offset_right = 250.0
+offset_bottom = 690.0
+script = ExtResource("1_upmjh")
+
+[node name="Background" type="ColorRect" parent="Equipment"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 345.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titlebar" type="Panel" parent="Equipment"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 31.0
+
+[node name="Title" type="Label" parent="Equipment/Titlebar"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 31.0
+text = "Equipment
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="Equipment/Titlebar"]
+visible = false
+layout_mode = 0
+offset_left = 214.0
+offset_right = 232.0
+offset_bottom = 31.0
+text = "-"
+
+[node name="CloseButton" type="Button" parent="Equipment/Titlebar"]
+layout_mode = 0
+offset_left = 232.0
+offset_right = 250.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="TextBox" type="VBoxContainer" parent="Equipment"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 250.0
+offset_bottom = 345.0
+script = ExtResource("5_d337c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Equipment/TextBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.79
+bbcode_enabled = true
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Equipment/TextBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="ResizeButton" type="Button" parent="Equipment"]
+visible = false
+layout_mode = 0
+offset_left = 232.0
+offset_top = 309.0
+offset_right = 251.0
+offset_bottom = 340.0
+text = "R"
+
+[node name="World Map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 893.0
+offset_right = 1280.0
+offset_bottom = 293.0
+script = ExtResource("1_upmjh")
+
+[node name="Background" type="ColorRect" parent="World Map"]
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 293.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titlebar" type="Panel" parent="World Map"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 31.0
+
+[node name="Title" type="Label" parent="World Map/Titlebar"]
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 31.0
+text = "World Map
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="World Map/Titlebar"]
+visible = false
+layout_mode = 0
+offset_left = 351.0
+offset_right = 369.0
+offset_bottom = 31.0
+text = "-"
+
+[node name="CloseButton" type="Button" parent="World Map/Titlebar"]
+layout_mode = 0
+offset_left = 369.0
+offset_right = 387.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="TextBox" type="VBoxContainer" parent="World Map"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 387.0
+offset_bottom = 293.0
+script = ExtResource("5_rjb57")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="World Map/TextBox"]
+layout_mode = 2
+size_flags_vertical = 10
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("5_rjb57")
+
+[node name="ResizeButton" type="Button" parent="World Map"]
+visible = false
+layout_mode = 0
+offset_left = 367.0
+offset_top = 261.0
+offset_right = 386.0
+offset_bottom = 292.0
+text = "R"
+
+[node name="Local Map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 893.0
+offset_top = 293.0
+offset_right = 1280.0
+offset_bottom = 685.0
+script = ExtResource("1_upmjh")
+
+[node name="Background" type="ColorRect" parent="Local Map"]
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 392.0
+color = Color(0, 0, 0, 1)
+
+[node name="Titlebar" type="Panel" parent="Local Map"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 31.0
+
+[node name="Title" type="Label" parent="Local Map/Titlebar"]
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 31.0
+text = "Local Map
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinimizeButton" type="Button" parent="Local Map/Titlebar"]
+visible = false
+layout_mode = 0
+offset_left = 351.0
+offset_top = -1.0
+offset_right = 369.0
+offset_bottom = 30.0
+text = "-"
+
+[node name="CloseButton" type="Button" parent="Local Map/Titlebar"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = -1.0
+offset_right = 387.0
+offset_bottom = 30.0
+text = "X"
+
+[node name="TextBox" type="VBoxContainer" parent="Local Map"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 387.0
+offset_bottom = 392.0
+script = ExtResource("2_bxisr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Local Map/TextBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("2_bxisr")
+
+[node name="ResizeButton" type="Button" parent="Local Map"]
+visible = false
+layout_mode = 0
+offset_left = 367.0
+offset_top = 361.0
+offset_right = 386.0
+offset_bottom = 392.0
+text = "R"
+
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/MenuButton" to="BottomBar" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/StatsButton" to="BottomBar" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/EquipmentButton" to="BottomBar" method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/MainButton" to="BottomBar" method="_on_main_button_pressed"]
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/CommButton" to="BottomBar" method="_on_comm_button_pressed"]
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/LocalMapButton" to="BottomBar" method="_on_local_map_button_pressed"]
+[connection signal="pressed" from="BottomBar/Panel/HBoxContainer/WorldMapButton" to="BottomBar" method="_on_world_map_button_pressed"]
+[connection signal="pressed" from="SystemMenu/VBoxContainer/ExitButton" to="SystemMenu" method="_on_exit_button_pressed"]
+[connection signal="gui_input" from="Main/Titlebar" to="Main" method="_on_titlebar_gui_input"]
+[connection signal="pressed" from="Main/Titlebar/CloseButton" to="Main" method="_on_close_button_pressed"]
+[connection signal="text_submitted" from="Main/PlayerInput/LineEdit" to="Main/TextBox" method="_on_line_edit_text_submitted"]
+[connection signal="gui_input" from="Communication/Titlebar" to="Communication" method="_on_titlebar_gui_input"]
+[connection signal="gui_input" from="Stats/Titlebar" to="Stats" method="_on_titlebar_gui_input"]
+[connection signal="gui_input" from="Equipment/Titlebar" to="Equipment" method="_on_titlebar_gui_input"]
+[connection signal="gui_input" from="World Map/Titlebar" to="World Map" method="_on_titlebar_gui_input"]
+[connection signal="gui_input" from="Local Map/Titlebar" to="Local Map" method="_on_titlebar_gui_input"]

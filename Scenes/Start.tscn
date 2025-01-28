@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds14kof1pbvbj"]
+
+[ext_resource type="Script" path="res://Scripts/Start.gd" id="1_x23gr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dwcd6"]
+load_path = "res://.godot/imported/title-swamp.jpg-686eb896787d3de92925b8c1257f6b0e.ctex"
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_x23gr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = SubResource("CompressedTexture2D_dwcd6")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 506.0
+offset_top = 72.0
+offset_right = 756.0
+offset_bottom = 243.0
+
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 44.0
+text = "TEXT RPG PROJECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+modulate = Color(0.0352941, 1, 0, 1)
+layout_mode = 0
+offset_top = 73.0
+offset_right = 250.0
+offset_bottom = 171.0
+
+[node name="NewGameButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "NEW GAME"
+
+[node name="LoadGameButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "LOAD GAME"
+
+[node name="ExitButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "EXIT"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 6.0
+offset_right = 505.0
+offset_bottom = 748.0
+scale = Vector2(0.75, 0.75)
+bbcode_enabled = true
+text = "[color=#09ff00][b]Godot 4.3[/b]
+
+[b]Objective:[/b]
+- Create a decent text-based RPG that requires little effort customize
+
+[b]UI[/b]
+- Windows can move around, minimize, and reset
+(WindowsManage.gd handles general functions)
+- Actions: Talk, Look, Help, Hint, Take, Equip, Remove, Move, Quit
+(Processed in PlayBox.gd, looks at AdventureTest.gd for values)
+
+[b]Stats[/b]
+- BRN = Brawn
+- QKN = Quickness
+- GRT = Grit
+- BNS = Brains
+(Stored in PlayerData.gd, Accessed by Stats.gd)
+(Stats can be renamed in PlayerData.gd)
+
+[b]Items/Equipment System[/b]
+- 5 inventory items
+- 6 equip slots
+(Stored in AdventureTest.gd, accessed by PlayerData.gd and Equipment.gd)
+
+[b]NPCs[/b]
+- Names, dialogues, actions
+(Stored in AdventureTest.gd)
+
+[b]ASCII Maps[/b]
+- Local maps
+- World map
+(Stored in each area in AdventureTest.gd)
+
+[b]Progression[/b]
+- Primary objectives (use this thing to progress)
+- Secondary objectives (stats or other thing)
+(Stored in AdventureTest.gd)
+
+
+[/color]"
+fit_content = true
+autowrap_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 907.0
+offset_right = 1406.0
+offset_bottom = 720.0
+scale = Vector2(0.75, 0.75)
+bbcode_enabled = true
+text = "[color=#09ff00][b]TO-DO[/b]
+
+[b]UI[/b]
+- Re-size windows
+- Save window locations
+- Scale windows to fullscreen or preferred size
+- 3 pre-set layouts the user can select
+- System Menu appears above windows but cannot be interacted with unless you move a window away from it
+
+[b]Stats[/b]
+- Implement NCH (Notch), Next, and HP
+- Implement conditions
+
+[b]Items/Equipment System[/b]
+- Equip doesn't remove item from inventory list
+- Capitalize item names after being equipped
+- Implement stats for items
+
+----------
+
+[b]Big Stuff[/b]
+
+[b]Simple Character Creation[/b]
+- Set name
+- Assign stats
+- Save to external .txt for easy access
+
+[b]Tutorial[/b]
+- Something to help new or those unfamilar with text-based RPGs
+[/color]"
+fit_content = true
+
+[connection signal="pressed" from="Control/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
