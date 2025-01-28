@@ -50,7 +50,7 @@ text = "NEW GAME"
 
 [node name="LoadGameButton" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "LOAD GAME"
+text = "LOAD GAME (TO-DO)"
 
 [node name="ExitButton" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -112,6 +112,11 @@ offset_bottom = 720.0
 scale = Vector2(0.75, 0.75)
 bbcode_enabled = true
 text = "[color=#09ff00][b]TO-DO[/b]
+
+[b]Character/Game State[/b]
+- Save character state
+- Save game state
+- Export states data as .txt
 
 [b]UI[/b]
 - Re-size windows

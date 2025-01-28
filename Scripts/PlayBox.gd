@@ -196,6 +196,7 @@ func handle_move(direction: String):
 		if adventure_test.can_move_to(next_area) == true:
 			adventure_test.load_area(next_area)
 			text_box.text += "[color=#09ff00][Move] You traveled " + direction + ".[/color]\n"
+			text_box.text += "[color=#09ff00]" + adventure_test.begin_text + "[/color]\n"
 			print("Player moved " + direction + " and loaded into " + next_area)  # DEBUG
 		else:
 			print("Cannot move " + direction + ". Objective not completed.")  # DEBUG
