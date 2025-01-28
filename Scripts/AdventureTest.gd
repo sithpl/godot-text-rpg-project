@@ -57,7 +57,7 @@ func starting_area():
 	'''
 	# --------- Area Load ----------
 	current_area = "starting_area"
-	begin_text = "[color=#09ff00]Your story begins here...[/color]."
+	begin_text = "[color=#09ff00][Area] Your story begins here...[/color]."
 	# --------- Hints ----------
 	if not start_area_done:
 		hint = "Find something to help you clear a path."
@@ -80,7 +80,7 @@ func starting_area():
 	npcs = {
 		"stranger": {
 			"name": "Stranger",
-			"action": "Stranger raises a tired hand and points at the road leading North.",
+			"action": "He raises a tired hand and points at the road leading North.",
 			"dialogue": "Stranger says,[i]'Hellhole is o'er yonder, fella.'[/i]"
 		}
 	}
@@ -93,26 +93,25 @@ func starting_area():
 		"north": "northroad_1" # northroad_1()
 	}
 	# ---------- Local Map ----------
-	local_map = '''[color=09ff00] 
-	~~~~~~~~~~~~~~|   |~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|%%%|~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|%%%|~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~/‾‾‾‾‾    ‾‾‾‾‾‾‾‾|~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~|  S          |~~~~~~~~~~~~~~~~~~~
-	~~~~~/‾‾‾‾               |~~~~~~~~~~~~~~~~~~~
-	~~~~~|                  |~~~~~~~~~~~~~~~~~~~
-	~~~~~|              @   |~~~~~~~~~~~~~~~~~~~
-	~~~~~|                  |~~~~~~~~~~~~~~~~~~~
-	~~~~~|        X         |~~~~~~~~~~~~~~~~~~~
-	~~~~~|                  /~~~~~~~~~~~~~~~~~~~
-	~~~~~|__________________/~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[/color]
+	local_map = '''[color=09ff00]~~~~~~~~~~~~~~~~|       |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~|       |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~|       |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~/         ‾‾‾‾‾|~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~/               |~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~/‾‾  S             |~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~|                  |~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~|              @   |~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~|                  |~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~|        X         |~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~|                  /~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~|__________________/~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[/color]
 	'''
 
-# ---------- NORTHROAD1 AREA ----------
+# ---------- NORTHROAD1 ----------
 
 var northroad_1_done : bool = false
 func northroad_1():
@@ -125,7 +124,7 @@ func northroad_1():
 	'''
 	# --------- Area Load ----------
 	current_area = "northroad_1"
-	begin_text = "[color=#09ff00]You stand in the middle of a dilapidated road.[/color]."
+	begin_text = "[color=#09ff00][Area] You stand in the middle of a dilapidated road.[/color]."
 	# --------- Hints ----------
 	hint = "No hints available."
 	# --------- Objectives ----------
@@ -145,7 +144,7 @@ func northroad_1():
 	npcs = {
 		"local": {
 			"name": "Local",
-			"action": "Local pats the sweat from his head with a dirty rag.",
+			"action": "She pats the sweat from her head with a dirty rag.",
 			"dialogue": "Local says, [i]I seen many fellas like you pass by. All down on their luck and tryin' to find their come up. Speak to Jessup down the road there. He'll help you out.[/i]"
 		}
 	}
@@ -155,29 +154,30 @@ func northroad_1():
 	}
 	# --------- Exits ----------
 	exits = {
+		"north": "hellhole",
 		"south": "starting_area",
 		"east": "eastroad_1"
 	}
 	# ---------- Local Map ----------
-	local_map = '''[color=09ff00] 
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|      L |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~#~#~#~#~#~#~#~#~#~#~#~
-	~~~~~~~~~~~~~~|   X    |#~#~#~#~#~#~#~#~#~#~#~#
-	~~~~~~~@~~~~~~|        |~#~#~#~#~#~#~#~#~#~#~#~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
-	~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~[/color]
+	local_map = '''[color=09ff00]~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~|      L |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~|        |~#~#~#~#~#~#~#~#~#~#~#~
+~~~~~~~~~~~~~~~~|   X    |#~#~#~#~#~#~#~#~#~#~#~#
+~~~~~~~@~~~~~~~~|        |~#~#~#~#~#~#~#~#~#~#~#~
+~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~[/color]
 	'''
 
-# ---------- EASTROAD1 AREA ----------
+# ---------- EASTROAD1 ----------
 
 var eastroad_1_done : bool = false
 func eastroad_1():
@@ -190,7 +190,7 @@ func eastroad_1():
 	'''
 	# --------- Area Load ----------
 	current_area = "eastroad_1"
-	begin_text = "[color=#09ff00]You are managing to keep yourself from sinking too much, but for how long...[/color]."
+	begin_text = "[color=#09ff00][Area] You are managing to keep yourself from sinking too much, but for how long...[/color]."
 	# --------- Hints ----------
 	hint = "No hints available."
 	# --------- Objectives ----------
@@ -215,6 +215,92 @@ func eastroad_1():
 	exits = {
 		"west": "northroad_1"
 	}
+	local_map = '''[color=09ff00]~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~/               |~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~|                |~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~|           @    |~~~~~~~~
+~#~#~#~#~#~#~|‾‾‾‾‾                 |~~~~~~~ 
+#~#~#~#~#~#~#|              X        |~~~~~~~
+~#~#~#~#~#~#~|______                  |~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~|                   |~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~|                   |~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~|                  |~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~|_________________/~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	'''
+
+# ---------- HELLHOLE ----------
+
+var hellhole_done : bool = false
+func hellhole():
+	# ---------- World Map Loaction ----------
+	world_map = '''
+		[color=09ff00]
+				[ ]
+			[ ]	[X]
+				[ ]	[ ]
+				[ ][/color]
+	'''
+	# --------- Area Load ----------
+	current_area = "hellhole"
+	begin_text = "[color=#09ff00][Area] You find yourself in the remnants of what once seemed to be a bustling area.[/color]"
+	# --------- Hints ----------
+	hint = "Speak to the locals."
+	# --------- Objectives ----------
+	current_objective = "None."
+	completed_message = "None."
+	objective_completed = false
+	# --------- Look ----------
+	look_desc = {
+		"around": "[Something] about this place makes you feel uneasy.",
+		"north": "The road leads North out of town.",
+		"east": "You see a large wooden building with signs of damage on the roof. A [sign] swings by the front door",
+		"south": "The road leads South out of town.",
+		"west": "The road leads West to a small shack on the outskirts.",
+		"sign": "LAZY LUCENNE'S",
+		"something": "[Brains] You aren't sure why..."
+		}
+	var stats1 = player_data.get_stats1()
+	if stats1["BNS"] >= 5:
+		look_desc["something"] = "[Brains] Based on this location and decaying remains, you can tell this was once a thriving fishing town, now abandoned by industry and left to decay."
+	# --------- NPCs and Dialogue ----------
+	npcs = {
+		"beggar": {
+			"name": "Beggar",
+			"action": "He frowns he turns to speak to you.",
+			"dialogue": "Beggar says, [i]I see you as broke as I am so do both'a us a favor and git t' gittin.[/i]"
+		}
+	}
+	# --------- Items in the Area ----------
+	area_items = {
+	}
+	# --------- Exits ----------
+	exits = {
+		"south": "northroad_1",
+		"north": "northroad_2",
+		"west" : "westroad_1"
+	}
+	local_map = '''[color=09ff00]~~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~~
+~|‾‾‾‾‾‾‾‾‾‾|~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~~
+~|   S   |~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~~
+~|_______|~~~~|        |~~~~|‾‾‾‾‾‾‾‾‾‾‾‾‾|~~~~~
+~~~~~~~~~~~~~/        |~~~~~|         |~~~~~
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾          ‾‾‾‾‾‾‾‾‾|         |~~~~~
+				   X    ____|    I    |~~~~~
+______________         |~~~~|         |~~~~~
+~~~~~~~~~~~~~~|        |~~~~|         |~~~~~
+~|‾‾‾|~~~~~~~~~|        |~~~~|_________|~~~~~
+~|  |~|‾‾‾|~~~~| B      |~~~~~~~~~~~~~~~~~~~~~~~
+~|__|~|  |~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~|__|~~~|        |~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~|        |~~~~~~~~~~~~~~~~~~~~~~~~~
+	[/color]'''
 
 # ---------- COMPLETING EACH AREA ----------
 
@@ -241,27 +327,32 @@ func can_move_to(next_area):
 			text_box.text += "[color=#09ff00][Move] " + current_objective + "[/color]\n"
 	# Northroad1 Objective
 	if current_area == "northroad_1":
-		if not northroad_1_done:
+		if next_area == "eastroad_1":
 			var stats1 = player_data.get_stats1()
-			if next_area == "eastroad_1":
-				if stats1["QKN"] >= 5:
+			if stats1["QKN"] >= 5:
+				if not northroad_1_done:
 					northroad_1_done = true
-					objective_completed = true
 					text_box.text += "[color=#09ff00][Quickness] You swiftly traverse the mud and arrive at a spot where it's a bit stiffer.[/color]\n"
-					load_area(next_area)
-				else:
-					text_box.text += "[color=#09ff00][Move] You take a few steps and sink quickly into the mud before leaping backwards to safety.[/color]\n"
-					return false
+					load_area("eastroad_1")
+				if northroad_1_done:
+					load_area("eastroad_1")
 			else:
-				northroad_1_done = true
-				objective_completed = true
-				load_area(next_area)
+				text_box.text += "[color=#09ff00][Move] You take a few steps and sink quickly into the mud before leaping backwards to safety.[/color]\n"
 		else:
-			load_area(next_area) 
-	# Eeastroad1 Objective
+			objective_completed
+			return true
+			load_area(next_area)
+	# Eastroad1 Objective
 	if current_area == "eastroad_1":
 		if not eastroad_1_done:
 			eastroad_1_done = true
+			objective_completed = true
+		load_area(next_area)
+		return true
+	# Hellhole Objective
+	if current_area == "hellhole":
+		if not hellhole_done:
+			hellhole_done = true
 			objective_completed = true
 		load_area(next_area)
 		return true
@@ -269,7 +360,6 @@ func can_move_to(next_area):
 	#else:
 		#load_area(next_area)
 		#return true
-		
 	return false
 
 # ---------- GET DATA ----------

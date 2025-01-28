@@ -28,10 +28,10 @@ var current_equipment : Dictionary = { # Initialize items
 
 var stats1 : Dictionary = { # Stores data for player_stats_label1
 	"Name": "\n",
-	"BRN": 0,
+	"BRN": 5,
 	"QKN": 0,
 	"GRT": 0,
-	"BNS": 0
+	"BNS": 5
 }  
 
 var stats2 = { # Stores data for player_stats_label2
