@@ -26,6 +26,7 @@ _(Stored in AdventureTest.gd, accessed by PlayerData.gd and Equipment.gd)_
 
 **NPCs**
 - Names, dialogues, actions
+
 _(Stored in AdventureTest.gd)_
 
 **ASCII Maps**
