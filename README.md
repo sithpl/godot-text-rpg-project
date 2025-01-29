@@ -37,6 +37,7 @@ _(Stored in each area in AdventureTest.gd)_
 **Progression**
 - Primary objectives (use this thing to progress)
 - Secondary objectives (stats or other thing)
+
 _(Stored in AdventureTest.gd)_
 
 **-------------------- TO-DO --------------------**
