@@ -86,7 +86,7 @@ func starting_area():
 	}
 	# --------- Items in the Area ----------
 	area_items = {
-		"rusty machete": { "slot": "this_hand" } 
+		"rusty machete": { "slot": "this_hand" }
 	}
 	# --------- Exits ----------
 	exits = {
@@ -364,9 +364,19 @@ func can_move_to(next_area):
 
 # ---------- GET DATA ----------
 
+var adventure_items = {
+	"rusty machete": { "slot": "this_hand" },
+	"sheet metal": { "slot": "chest" } 
+}
+
 # Safely get item data
 func get_item_data(item_name: String) -> Dictionary:
+	print("AdventureTest.gd.get_item_data(item_name)")
 	return area_items.get(item_name, {})
+
+func get_inventory_data(item_name: String) -> Dictionary:
+	print("AdventureTest.get_inventory_data(item_name)")
+	return adventure_items.get(item_name, {})
 
 # Safely get NPC data
 func get_npc_data(npc_name: String) -> Dictionary:

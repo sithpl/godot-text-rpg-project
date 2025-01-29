@@ -14,14 +14,14 @@ var player_data : PlayerData  # Reference PlayerData script
 # ---------- Scene Load ----------
 
 func _ready():
-	if equip_label == null:
-		print("Error: equip_label node not found!") # DEBUG
-	else:
-		print("equip_label node found!") # DEBUG
-	if item_label == null:
-		print("Error: item_label node not found!") # DEBUG
-	else:
-		print("item_label node found!") # DEBUG
+	#if equip_label == null:
+		#print("Error: equip_label node not found!") # DEBUG
+	#else:
+		#print("equip_label node found!") # DEBUG
+	#if item_label == null:
+		#print("Error: item_label node not found!") # DEBUG
+	#else:
+		#print("item_label node found!") # DEBUG
 	
 	# Get PlayerData instance
 	player_data = get_node("/root/PlayerData")  # Adjust path if needed
@@ -39,7 +39,7 @@ func _ready():
 
 # Signal handler for when equipment is updated
 func _on_equipment_updated(new_equipment : Dictionary) -> void:
-	#print ("_on_equipment_updated called")
+	print("Equipment.on_equipment_updated(new_equipment)")
 	var equip_text = ""
 	for key in new_equipment.keys():
 		equip_text += "[color=#09ff00]" + key.capitalize() + ": " + new_equipment[key] + "[/color]\n"
@@ -47,7 +47,7 @@ func _on_equipment_updated(new_equipment : Dictionary) -> void:
 
 # Update the equipment display
 func update_equipment(equipment : Dictionary) -> void:
-	#print ("update_equipment called")
+	print("Equipment.update_equipment(equipment)")
 	if equip_label != null:
 		var equip_text = ""
 		for key in equipment.keys():
@@ -58,6 +58,7 @@ func update_equipment(equipment : Dictionary) -> void:
 
 # Signal handler for when items are updated
 func _on_inventory_updated(new_items: Dictionary) -> void:
+	print("Equipment.on_inventory_updated(new_items)")
 	var item_text = ""
 	for key in new_items.keys():
 		item_text += "[color=#09ff00]" + key.capitalize() + "[/color]\n"
@@ -65,7 +66,7 @@ func _on_inventory_updated(new_items: Dictionary) -> void:
 	
 # Update the items display
 func update_items(items : Dictionary) -> void:
-	#print ("update_items called")
+	print("Equipment.update_items(items)")
 	if item_label != null:
 		var item_text = ""
 		for key in items.keys():

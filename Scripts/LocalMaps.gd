@@ -11,15 +11,15 @@ func _ready() -> void:
 	if local_label:
 		adventure_test.connect("area_loaded", Callable(self, "_on_area_loaded"))
 		load_local_map()
-	else:
-		print("Failed to load world_label node") # DEBUG
+	#else:
+		#print("Failed to load world_label node") # DEBUG
 
 func load_local_map():
 	if len(adventure_test.local_map) > 0:
-		print("LocalMap.gd, local_map loaded") # DEBUG
+		#print("LocalMap.gd, local_map loaded") # DEBUG
 		local_label.text += adventure_test.local_map
-	else:
-		print("Invalid world_map data") # DEBUG
+	#else:
+		#print("Invalid world_map data") # DEBUG
 
 func _on_area_loaded():
 	local_label.text = ""
