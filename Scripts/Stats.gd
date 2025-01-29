@@ -14,18 +14,18 @@ class_name Stats
 var player_data : PlayerData  # Reference PlayerData script
 
 func _ready():
-	if not stats1_label:
-		print("Error: stats1_label node not found!")  # DEBUG
-	else:
-		print("stats1_label node found!")  # DEBUG
-	if not stats2_label:
-		print("Error: stats2_label node not found!")  # DEBUG
-	else:
-		print("stats2_label node found!")  # DEBUG
-	if not condition_label:
-		print("Error: condition_label node not found!")  # DEBUG
-	else:
-		print("condition_label node found!")  # DEBUG
+	#if not stats1_label:
+		#print("Error: stats1_label node not found!")  # DEBUG
+	#else:
+		#print("stats1_label node found!")  # DEBUG
+	#if not stats2_label:
+		#print("Error: stats2_label node not found!")  # DEBUG
+	#else:
+		#print("stats2_label node found!")  # DEBUG
+	#if not condition_label:
+		#print("Error: condition_label node not found!")  # DEBUG
+	#else:
+		#print("condition_label node found!")  # DEBUG
 	
 	# Fetch PlayerData instance
 	player_data = get_node("/root/PlayerData")  # Adjust path if necessary

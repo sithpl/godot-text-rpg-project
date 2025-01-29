@@ -14,7 +14,7 @@ signal condition_updated # Signal to notify changes in stats
 var adventure_test  # Reference to AdventureTest.gd Node
 
 var inventory : Dictionary = { # Stores items the player has picked up
-	"items:": ""
+	"items": ""
 } 
  
 var current_equipment : Dictionary = { # Initialize items
@@ -63,7 +63,7 @@ func add_to_inventory(item_name: String) -> void:
 # Equip a new item and notify listeners
 func equip_item(item_name: String) -> void:
 	if inventory.has(item_name):
-		var item_data = adventure_test.get_item_data(item_name)
+		var item_data = adventure_test.get_inventory_data(item_name)
 		if item_data:
 			var slot = item_data["slot"]
 			current_equipment[slot] = item_name  # Capitalize words
