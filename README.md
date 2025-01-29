@@ -32,6 +32,7 @@ _(Stored in AdventureTest.gd)_
 **ASCII Maps**
 - Local maps
 - World map
+
 _(Stored in each area in AdventureTest.gd)_
 
 **Progression**
